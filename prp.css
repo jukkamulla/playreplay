@@ -1,0 +1,29 @@
+
+section {
+    background-color: #caf937;
+    width: 848px;
+    margin: auto;
+}
+
+div {
+    height: 150px;
+    width: 150px;
+    background-color: #ffffff;
+    border: solid  15px #0D9A33;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 50px;
+}
+
+p {
+    font-size: 45px;
+    color: #0D9A33;
+    font-weight: bold;
+    font-family: Roboto, sans-serif;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+#start {
+    cursor: pointer;
+}
