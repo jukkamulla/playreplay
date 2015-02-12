@@ -1,11 +1,46 @@
 
 section {
     background-color: #caf937;
-    width: 848px;
+    width: 1132px;
     margin: auto;
 }
 
-div {
+#result {
+    height: 50px;
+    width: 100px;
+    color: #94989c;
+    padding: 10px;
+    font-size: 50px;
+}
+
+#check {
+    outline: 0;
+    border: 1px solid #0f0;
+    background-color: #f2f9ff;
+    height: 100px;
+    width: 100px;
+    color: #94989c;
+    padding: 10px;
+    font-size: 50px;
+}
+
+.inputs {
+    background-color: #cfff38;
+    width: 1132px;
+    margin: auto;
+}
+
+.game {
+    width: 50px;
+    margin: 50px;
+    display: inline-block;
+}
+
+#player {
+    border: solid  15px #9a7a08;
+}
+
+.board {
     height: 150px;
     width: 150px;
     background-color: #ffffff;

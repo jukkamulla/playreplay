@@ -8,12 +8,21 @@
 </head>
 
 <body>
+    <section class="inputs">
+        <div class="game"><p id="number1">0</p></div>
+        <div class="game"><p>+</p></div>
+        <div class="game"><p id="number2">0</p></div>
+        <div class="game"><p>=</p></div>
+        <div class="game"><input id="result" type="text" /></div>
+        <div class="game"><input id="check" value="Go" type="submit" onclick="checkResult()"/></div>
+    </section>
     <section>
-        <div id="start">
+        <div class="board" id="start">
             <p onclick="go()">Go</p>
         </div>
-        <div id="sequence"><p>0</p></div>
-        <div id="counter"><p>0</p></div>
+        <div class="board" id="sequence"><p>0</p></div>
+        <div class="board" id="player"><p>0</p></div>
+        <div class="board" id="counter"><p>0</p></div>
     </section>
     <script src="prp.js"></script>
 </body>
