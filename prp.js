@@ -22,8 +22,18 @@ function sequence() {
     }
 }
 
+function setRandomNumbers() {
+    var number1 = document.getElementById("number1");
+    var setNumber1 = Math.floor((Math.random() * 99) + 1);
+    var number2 = document.getElementById("number2");
+    var setNumber2 = Math.floor((Math.random() * 99) + 1);
+    number1.innerHTML = setNumber1.toString();
+    number2.innerHTML = setNumber2.toString();
+}
+
 function go() {
     interval = setInterval(sequence, 1000);
+    setRandomNumbers();
 }
 
 function checkResult() {
