@@ -1,6 +1,6 @@
 var i = 1;
 var j = 0;
-var k = 1;
+var rightValueCounter = 0;
 var interval;
 var setNumber1;
 var setNumber2;
@@ -44,9 +44,9 @@ function checkResult() {
     var resultElement = document.getElementById("result");
     console.log(resultElement.value);
     var playerElement = document.getElementById("player").firstChild;
-    playerElement.innerHTML = k.toString();
     if (resultElement.value == setNumber1 + setNumber2) {
-        k++;
+        rightValueCounter++;
+        playerElement.innerHTML = rightValueCounter.toString();
         resultElement.value = "";
         setRandomNumbers();
     }
