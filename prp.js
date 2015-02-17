@@ -51,3 +51,12 @@ function checkResult() {
         setRandomNumbers();
     }
 }
+
+function keyCode(event) {
+    var key = event.which || event.keyCode;
+    if (key === 13) {
+        console.log("press enter");
+        checkResult();
+    }
+
+}
