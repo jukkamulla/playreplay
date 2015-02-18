@@ -1,55 +1,59 @@
-var i = 1;
-var j = 0;
+var timer = 1;
+var playerWins = 0;
 var rightValueCounter = 0;
 var interval;
 var setNumber1;
 var setNumber2;
 
 
-function setCounter() {
-    var counterElement = document.getElementById("counter");
-    var counterParagraph = counterElement.firstChild;
-    j++;
-    counterParagraph.innerHTML = j.toString();
+function setHtmlValue(id, value) {
+    var element = document.getElementById(id).firstChild;
+    element.innerHTML = value.toString();
 }
 
 function sequence() {
-    var sequenceElement = document.getElementById("sequence");
-    var sequenceParagraph = sequenceElement.firstChild;
-    sequenceParagraph.innerHTML = i.toString();
-    i++;
+    setHtmlValue("sequence", timer);
+    timer++;
 
-    if (i === 11) {
+    if (timer === 11) {
         clearInterval(interval);
-        setCounter();
-        i = 0;
+        timer = 0;
     }
 }
 
 function setRandomNumbers() {
     var number1 = document.getElementById("number1");
-    setNumber1 = Math.floor((Math.random() * 99) + 1);
+    setNumber1 = Math.floor((Math.random() * 9) + 1);
     var number2 = document.getElementById("number2");
-    setNumber2 = Math.floor((Math.random() * 99) + 1);
+    setNumber2 = Math.floor((Math.random() * 9) + 1);
     number1.innerHTML = setNumber1.toString();
     number2.innerHTML = setNumber2.toString();
 }
 
 function go() {
-    interval = setInterval(sequence, 1000);
+    interval = setInterval(sequence, 5000);
     setRandomNumbers();
 }
 
 function checkResult() {
     var resultElement = document.getElementById("result");
-    console.log(resultElement.value);
-    var playerElement = document.getElementById("player").firstChild;
     if (resultElement.value == setNumber1 + setNumber2) {
         rightValueCounter++;
-        playerElement.innerHTML = rightValueCounter.toString();
+        setHtmlValue("player", rightValueCounter);
         resultElement.value = "";
         setRandomNumbers();
     }
+    function isPlayerWins() {
+        if (rightValueCounter === 10 && timer < 10) {
+            playerWins++;
+            setHtmlValue("counter", playerWins);
+            timer = 0;
+            setHtmlValue("sequence", timer);
+            rightValueCounter = 0;
+            setHtmlValue("player", rightValueCounter);
+        }
+    }
+    isPlayerWins()
 }
 
 function keyCode(event) {
