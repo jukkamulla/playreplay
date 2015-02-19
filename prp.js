@@ -1,6 +1,7 @@
-var timer = 1;
+var timer = 0;
 var playerWins = 0;
 var rightValueCounter = 0;
+var sequenceTime = 5000;
 var interval;
 var setNumber1;
 var setNumber2;
@@ -12,26 +13,27 @@ function setHtmlValue(id, value) {
 }
 
 function sequence() {
-    setHtmlValue("sequence", timer);
     timer++;
-
+    setHtmlValue("sequence", timer);
     if (timer === 11) {
-        clearInterval(interval);
         timer = 0;
+        setHtmlValue("sequence", timer);
+        rightValueCounter = 0;
+        setHtmlValue("player", rightValueCounter);
     }
 }
 
 function setRandomNumbers() {
     var number1 = document.getElementById("number1");
-    setNumber1 = Math.floor((Math.random() * 9) + 1);
+    setNumber1 = Math.floor((Math.random() * 99) + 1);
     var number2 = document.getElementById("number2");
-    setNumber2 = Math.floor((Math.random() * 9) + 1);
+    setNumber2 = Math.floor((Math.random() * 99) + 1);
     number1.innerHTML = setNumber1.toString();
     number2.innerHTML = setNumber2.toString();
 }
 
 function go() {
-    interval = setInterval(sequence, 5000);
+    interval = setInterval(sequence, sequenceTime);
     setRandomNumbers();
 }
 
@@ -44,13 +46,17 @@ function checkResult() {
         setRandomNumbers();
     }
     function isPlayerWins() {
-        if (rightValueCounter === 10 && timer < 10) {
-            playerWins++;
-            setHtmlValue("counter", playerWins);
+        if (rightValueCounter === 10) {
+            if (timer < 10) {
+                playerWins++;
+                setHtmlValue("counter", playerWins);
+            }
+            clearInterval(interval)
             timer = 0;
             setHtmlValue("sequence", timer);
             rightValueCounter = 0;
             setHtmlValue("player", rightValueCounter);
+            interval = setInterval(sequence, sequenceTime);
         }
     }
     isPlayerWins()
@@ -62,5 +68,4 @@ function keyCode(event) {
         console.log("press enter");
         checkResult();
     }
-
 }
