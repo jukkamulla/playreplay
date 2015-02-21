@@ -56,7 +56,6 @@ function checkResult() {
             setHtmlValue("sequence", timer);
             rightValueCounter = 0;
             setHtmlValue("player", rightValueCounter);
-            interval = setInterval(sequence, sequenceTime);
         }
     }
     isPlayerWins()
