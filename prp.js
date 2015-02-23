@@ -11,6 +11,7 @@ var setNumber2;
 function go() {
     interval = setInterval(sequence, sequenceTime);
     setRandomNumbers();
+    removeBlinking();
 }
 
 function setRandomNumbers() {
@@ -49,13 +50,14 @@ function isPlayerWins() {
             setHtmlValue("counter", playerWins);
         }
         resetRound();
+        addBlinking();
     }
 }
 
 function resetRound() {
     clearInterval(interval);
     interval = false;
-    
+
     timer = 0;
     setNumber1 = 0;
     setNumber2 = 0;
@@ -87,4 +89,14 @@ function keyCode(event) {
     if (key === 13) {
         checkResult();
     }
+}
+
+function addBlinking() {
+    var start = document.getElementById("start");
+    start.classList.add("blink");
+}
+
+function removeBlinking() {
+    var start = document.getElementById("start");
+    start.classList.remove("blink");
 }
