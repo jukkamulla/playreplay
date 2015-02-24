@@ -1,7 +1,7 @@
 var timer = 0;
 var playerWins = 0;
 var rightValueCounter = 0;
-var sequenceTime = 5000;
+var sequenceTime = 500;
 var maxRightValue = 2;
 var interval;
 var setNumber1;
@@ -63,6 +63,7 @@ function resetRound() {
     setNumber2 = 0;
     rightValueCounter = 0;
 
+    addBlinking();
     displayNumber();
     setHtmlValue("sequence", timer);
     setHtmlValue("player", rightValueCounter);
@@ -77,10 +78,7 @@ function sequence() {
     timer++;
     setHtmlValue("sequence", timer);
     if (timer === 11) {
-        timer = 0;
-        setHtmlValue("sequence", timer);
-        rightValueCounter = 0;
-        setHtmlValue("player", rightValueCounter);
+        resetRound();
     }
 }
 
