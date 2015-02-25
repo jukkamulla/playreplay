@@ -1,7 +1,7 @@
 var timer = 0;
 var playerWins = 0;
 var rightValueCounter = 0;
-var sequenceTime = 500;
+var sequenceTime = 1000;
 var maxRightValue = 2;
 var interval;
 var setNumber1;
@@ -38,6 +38,9 @@ function checkResult() {
             setHtmlValue("player", rightValueCounter);
             resultElement.value = "";
             setRandomNumbers();
+            removeSignal();
+        }else {
+            addSignal();
         }
         isPlayerWins()
     }
@@ -67,6 +70,7 @@ function resetRound() {
     displayNumber();
     setHtmlValue("sequence", timer);
     setHtmlValue("player", rightValueCounter);
+    removeSignal();
 }
 
 function setHtmlValue(id, value) {
@@ -98,3 +102,14 @@ function removeBlinking() {
     var start = document.getElementById("start");
     start.classList.remove("blink");
 }
+
+function addSignal() {
+    var signal = document.getElementById("result");
+    signal.classList.add("signal");
+}
+
+function removeSignal() {
+    var signal = document.getElementById("result");
+    signal.classList.remove("signal");
+}
+

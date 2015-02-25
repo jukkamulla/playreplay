@@ -65,7 +65,7 @@ p {
 }
 
 .blink {
-    -webkit-animation-name: blinker;
+    -webkit-animation: blinker;
     -webkit-animation-duration: 2s;
     -webkit-animation-timing-function: linear;
     -webkit-animation-iteration-count: infinite;
@@ -97,4 +97,13 @@ p {
     0% { opacity: 1.0; }
     50% { opacity: 0.5; }
     100% { opacity: 1.0; }
+}
+
+.signal {
+    border: 10px solid #9a7a08;
+    height: 50px;
+    width: 100px;
+    color: #94989c;
+    padding: 10px;
+    font-size: 50px;
 }
