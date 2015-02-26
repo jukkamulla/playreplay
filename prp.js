@@ -1,8 +1,8 @@
 var timer = 0;
 var playerWins = 0;
 var rightValueCounter = 0;
-var sequenceTime = 1000;
-var maxRightValue = 2;
+var sequenceTime = 5000;
+var maxRightValue = 10;
 var interval;
 var setNumber1;
 var setNumber2;
